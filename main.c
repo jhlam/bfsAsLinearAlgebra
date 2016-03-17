@@ -3,10 +3,11 @@
 int main(){
     int N = 7;
     int value = 2;
-    int Y[7];
+    int Y[7]={};
     int p_g = 30;
     int root[7]={1,0,0,0,0,0,0};
     int dist[7]={};
+    int frontier[7]={};
     int A[][7]={
                 {1,1,0,1,0,0,0},
                 {1,1,0,0,1,0,1},
@@ -31,13 +32,14 @@ int main(){
 
     //test_rng(N,42);
     //test_rng_2(10,42);
-    //bfs_simulation(N, A, Y, root, dist, 25);
+  //  t_bfs_simulation(N, A, Y, root, frontier, dist, 30);
 
     int t_N = 16;
     int t_value = 2;
     int t_Y[16];
     int t_p_g = 30;
     int t_root[16]={1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1};
+    int t_frontier[16]={};
     int t_dist[16]={};
     int t_A[][16]={
                 {1,1,1,1,0,0,1,0,1,1,1,1,0,1,0,0},
@@ -77,10 +79,9 @@ int main(){
                 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
                 };
 
-    t_bfs_simulation(t_N,t_matrix,t_Y,t_root,t_dist, 15);
-    test_matrix_1(N);
-
-    test_simulation_1();
+  //  t_bfs_simulation(t_N,t_matrix,t_Y,t_root,t_frontier, t_dist, 15);
+ /**
+   test_simulation_1();
     test_simulation_2();
     test_simulation_3();
     test_simulation_4();
@@ -99,7 +100,33 @@ int main(){
     test_matrix_6(N);
     test_rng();
     test_rng_2();
+**/
+//test_simulation_10();
+  //  test_simulation_11();
+
+  int matrix_one[7*7]={
+	1,1,0,1,0,0,0,
+	1,1,0,0,1,0,1,
+	0,0,1,1,0,1,1,
+	1,0,1,1,0,0,1,
+	0,1,0,0,1,0,1,
+	0,0,1,0,0,1,0,
+	0,1,1,1,1,0,1
+	};
+	int seeds[7]={1,0,0,0,0,0,0};
+	int distance[7]={};
+	int local_result[7]={};
+	int frontier_one[7]={};
+
+ clock_t start = clock(), diff;
+    t_bfs_simulation(7,matrix_one,local_result,seeds,frontier_one,distance,100);
+diff = clock() - start;
+
+int msec = diff * 1000 / CLOCKS_PER_SEC;
+printf("Time taken %d seconds %d milliseconds \n", msec/1000, msec%1000);
+
 
     return 0;
+
 
 }

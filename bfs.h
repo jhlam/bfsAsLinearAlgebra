@@ -13,7 +13,9 @@ int matrix_vector_multiplication(int total_node, int A[][total_node], int V[tota
 int bfs_simulation(int total_node, int A[][total_node], int result[total_node], int root[total_node], int dist[total_node],int global_probability);
 int distGen(int total_node,int dist[total_node], int level, int x[total_node], int y[total_node]);
 
+
 //----------------test for a larger matrix------------------
+
 int test_matrix_vector_multiplication( int N,int A[][N], int V[], int Y[], int p_g );
 int test_distGen(int dist[], int level, int x[], int y[], int N);
 int test_bfs_simulation( int N,int A[][N], int result[], int root[], int dist[], int p_g);
@@ -22,5 +24,7 @@ int test_bfs_simulation( int N,int A[][N], int result[], int root[], int dist[],
 int get_element(int total_node, int *matrix, int x, int y);
 int set_element(int total_node, int *matrix, int x, int y, int target);
 int t_matrix_vector_multiplication(int total_node, int *matrix, int vect[total_node], int result[total_node], int global_probability );
-int t_bfs_simulation(int total_node, int *matrix, int y_vector[total_node], int x_vector[total_node], int dist[total_node], int global_probability);
+int t_bfs_simulation(int total_node, int *matrix, int y_vector[total_node], int x_vector[total_node],int frontier[total_node], int dist[total_node], int global_probability);
 int t_distGen(int total_node, int dist[total_node], int level, int x_vector[total_node], int y_vector[total_node]);
+int sub_vector(int total_node, int vector_1[],int vector_2[], int result_vector[]);
+int add_vector(int total_node, int vector_1[],int vector_2[], int result_vector[]);

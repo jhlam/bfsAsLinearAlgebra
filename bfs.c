@@ -54,6 +54,31 @@ int print_result(int x[],int steps, int N, char r){
     printf("]");
 }
 
+int sub_vector(int total_node, int vector_1[],int vector_2[], int result_vector[]){
+    int i;
+    for(i=0; i<total_node;i++){
+        if(vector_1[i] && !(vector_2[i])){
+            result_vector[i]=1;
+        }
+        else{
+            result_vector[i]=0;
+        }
+    }
+
+}int add_vector(int total_node, int vector_1[],int vector_2[], int result_vector[]){
+    int i;
+    for(i=0; i<total_node; i++){
+        if(vector_1[i] ||  vector_2[i]){
+            result_vector[i]=1;
+        }
+        else{
+            result_vector[i]=0;
+        }
+    }
+    return 0;
+}
+
+
 
 int matrix_vector_multiplication(int total_node, int matrix[][total_node], int vect[total_node], int result[total_node], int global_probability ){
     int seed = 42; //Just a random number chosen as seed for RNG
@@ -110,6 +135,7 @@ int bfs_simulation(int total_node, int matrix[][total_node], int y_vector[total_
 //-----------initiate some of the vectors---------------
 	 for(int i = 0; i<total_node; i++){
             dist[i]= -1;
+
 	}
 //---------------Main computation-------------------
 

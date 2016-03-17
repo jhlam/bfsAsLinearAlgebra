@@ -491,19 +491,21 @@ int test_simulation_10(){
         {0,0,0,0,0,1,0},
         {0,0,0,0,1,0,1}
     };
-    int v[7]={1,0,0,0,0,0,0};
+    int vec[7]={1,0,0,0,0,0,0};
     int result[7]={};
     int N = 7;
+    int frontier[7]={};
     int anwser[7]= {1,1,0,0,1,0,1};
-int dist[]= {};
-    bfs_simulation(N, A,result, v, dist,100);
+    int dist[7]= {};
+   t_bfs_simulation(N, A,result, vec,frontier, dist,100);
             //print_vector(result,N);
 
 
     for(int i = 0; i<N; i++){
-        if(anwser[i] != result[i]){
+        if(anwser[i] != vec[i]){
             printf("\nSimulation test 10 faield\n");
-            print_vector(result,N);
+            print_vector(vec,N);
+            print_vector(anwser,N);
 
             return 0;
         }
@@ -512,7 +514,7 @@ int dist[]= {};
     return 0;
 }
 int test_simulation_11(){
-    printf("stage 1 \n");
+   // printf("stage 1 \n");
     int A[][11]={
         {1,1,0,0,1,0,0,0,1,0,0},
         {1,1,0,0,0,0,0,0,0,0,0},
@@ -531,13 +533,13 @@ int test_simulation_11(){
     int dist[11]={};
     int N = 11;
     int anwser[11]= {1,1,0,1,1,0,0,1,1,1,1};
-
-    bfs_simulation(N,A,result,v,dist , 100);
+    int frontier[11] ={};
+    t_bfs_simulation(N,A,result,v, frontier,dist , 100);
             //print_vector(result,N);
 
 
     for(int i = 0; i<N; i++){
-        if(anwser[i] != result[i]){
+        if(anwser[i] != v[i]){
             printf("\nSimulation test 11 faield\n");
             print_vector(result,N);
 
